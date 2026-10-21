@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>이상형 벨런스게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>이상형 벨런스게임</h1>
+        <div id="game-container">
+            <div id="start-container">
+                <p>이상형 벨런스게임을 통해 당신의 이상형을 분석해보세요!</p>
+                <button id="start-btn" class="option-btn">게임 시작</button>
+                <button id="preview-btn" class="option-btn" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">질문 미리보기</button>
+            </div>
+            <div id="question-container" style="display: none;">
+                <p id="question-text">질문이 여기에 표시됩니다</p>
+                <div class="options">
+                    <button id="option1" class="option-btn">선택지 1</button>
+                    <button id="option2" class="option-btn">선택지 2</button>
+                </div>
+            </div>
+            <div id="preview-container" style="display: none;">
+                <h2>질문 목록</h2>
+                <div id="preview-list"></div>
+                <button id="back-btn" class="restart-btn">돌아가기</button>
+            </div>
+            <div id="result-container" style="display: none;">
+                <h2>당신의 이상형 분석결과</h2>
+                <ul id="result-list"></ul>
+                <button id="restart-btn" class="restart-btn">다시 하기</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
