@@ -457,10 +457,29 @@ shareBtn.addEventListener('click', shareResult);
 
 // 결과 이미지로 공유
 function shareResult() {
-    html2canvas(resultCard).then(canvas => {
+    // 원래 스타일 저장
+    const originalWidth = resultCard.style.width;
+    const originalMaxWidth = resultCard.style.maxWidth;
+    const originalHeight = resultCard.style.height;
+
+    // 정사각형 크기로 임시 설정
+    resultCard.style.width = '500px';
+    resultCard.style.maxWidth = '500px';
+    resultCard.style.height = '500px';
+
+    html2canvas(resultCard, {
+        width: 500,
+        height: 500,
+        scale: 2
+    }).then(canvas => {
         const link = document.createElement('a');
         link.download = '이상형_분석결과.png';
         link.href = canvas.toDataURL();
         link.click();
+
+        // 원래 스타일 복원
+        resultCard.style.width = originalWidth;
+        resultCard.style.maxWidth = originalMaxWidth;
+        resultCard.style.height = originalHeight;
     });
 }
