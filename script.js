@@ -673,16 +673,19 @@ function shareResult() {
     const originalWidth = resultCard.style.width;
     const originalMaxWidth = resultCard.style.maxWidth;
     const originalHeight = resultCard.style.height;
+    const originalOverflow = resultCard.style.overflow;
 
-    // 정사각형 크기로 임시 설정
+    // 이미지 크기로 임시 설정 (세로로 길게)
     resultCard.style.width = '500px';
     resultCard.style.maxWidth = '500px';
-    resultCard.style.height = '500px';
+    resultCard.style.height = 'auto';
+    resultCard.style.overflow = 'visible';
 
     html2canvas(resultCard, {
         width: 500,
-        height: 500,
-        scale: 2
+        scale: 2,
+        useCORS: true,
+        allowTaint: true
     }).then(canvas => {
         const link = document.createElement('a');
         link.download = '이상형_분석결과.png';
@@ -693,5 +696,6 @@ function shareResult() {
         resultCard.style.width = originalWidth;
         resultCard.style.maxWidth = originalMaxWidth;
         resultCard.style.height = originalHeight;
+        resultCard.style.overflow = originalOverflow;
     });
 }
