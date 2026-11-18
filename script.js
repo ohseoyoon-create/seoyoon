@@ -687,10 +687,22 @@ function shareResult() {
         useCORS: true,
         allowTaint: true
     }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = '이상형_분석결과.png';
-        link.href = canvas.toDataURL();
-        link.click();
+        // iOS Safari 대응
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+        if (isIOS) {
+            // iOS에서는 새 탭에서 열어서 저장하게 함
+            const image = canvas.toDataURL('image/png');
+            const win = window.open();
+            win.document.write('<img src="' + image + '" style="max-width:100%"/>');
+            win.document.write('<p style="text-align:center; margin-top:20px;">이미지를 길게 눌러서 저장하세요</p>');
+        } else {
+            // 기타 브라우저에서는 다운로드
+            const link = document.createElement('a');
+            link.download = '이상형_분석결과.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
 
         // 원래 스타일 복원
         resultCard.style.width = originalWidth;
