@@ -97,6 +97,90 @@ const questions = [
         option2: "성격 평범하지만 잘생긴 사람이랑 싸움",
         traits1: ["성격 좋은 사람", "이해심 있는 사람"],
         traits2: ["잘생긴 사람", "시각적 보상이 있는 사람"]
+    },
+    {
+        question: "이상형의 운동 습관은?",
+        option1: "매일 꾸준히 운동하는 사람",
+        option2: "운동은 안 해도 건강한 사람",
+        traits1: ["운동을 꾸준히 하는 사람", "자기관리가 철저한 사람"],
+        traits2: ["자연스러운 건강을 가진 사람", "무리하지 않는 사람"]
+    },
+    {
+        question: "돈을 쓰는 스타일은?",
+        option1: "즐겁게 쓰고 즐기는 사람",
+        option2: "미리미리 저축하고 알뜰하게 쓰는 사람",
+        traits1: ["즐겁게 사는 사람", "현재를 즐기는 사람"],
+        traits2: ["알뜰한 사람", "미래를 준비하는 사람"]
+    },
+    {
+        question: "이상형의 여행 스타일은?",
+        option1: "계획짜고 완벽하게 준비하는 플래너형",
+        option2: "그때그때 가보고 싶은 곳으로 떠나는 여행자형",
+        traits1: ["계획적인 사람", "준비성이 좋은 사람"],
+        traits2: ["유연한 사람", "즉흥적인 매력"]
+    },
+    {
+        question: "반려동물에 대한 생각은?",
+        option1: "강아지, 고양이 키우는 사람",
+        option2: "반려동물 없이 자유로운 생활",
+        traits1: ["동물을 사랑하는 사람", "다정한 성격"],
+        traits2: ["자유로운 생활을 선호하는 사람", "깔끔한 사람"]
+    },
+    {
+        question: "이상형의 자기관리 루틴은?",
+        option1: "스킨케어, 헤어까지 완벽하게 하는 사람",
+        option2: "기본만 해도 충분하다고 생각하는 사람",
+        traits1: ["외모 관리에 철저한 사람", "세심한 사람"],
+        traits2: ["자연스러운 모습을 선호하는 사람", "간소한 사람"]
+    },
+    {
+        question: "친구들과의 관계는?",
+        option1: "친구가 많고 항상 붐비는 사람",
+        option2: "소수의 절친만 깊게 지내는 사람",
+        traits1: ["사교적인 사람", "인기가 많은 사람"],
+        traits2: ["진정성 있는 사람", "깊은 관계를 중시하는 사람"]
+    },
+    {
+        question: "이상형의 영화/OTT 취향은?",
+        option1: "트렌드 콘텐츠 빠르게 챙겨보는 사람",
+        option2: "클래식 명작 좋아하는 사람",
+        traits1: ["트렌드에 민감한 사람", "새로운 것을 좋아하는 사람"],
+        traits2: ["깊이 있는 사람", "클래식을 즐기는 사람"]
+    },
+    {
+        question: "이상형의 수면 습관은?",
+        option1: "아침형 인간, 일찍 일어나서 활동적인 사람",
+        option2: "밤형 인간, 밤에 에너지가 넘치는 사람",
+        traits1: ["아침형 사람", "규칙적인 생활"],
+        traits2: ["밤형 사람", "자유로운 생활"]
+    },
+    {
+        question: "이상형의 음악 취향은?",
+        option1: "최신 히트곡 빠르게 챙겨듣는 사람",
+        option2: "오래된 명곡 좋아하는 사람",
+        traits1: ["트렌드에 민감한 사람", "새로운 음악을 좋아하는 사람"],
+        traits2: ["클래식을 즐기는 사람", "깊이 있는 취향"]
+    },
+    {
+        question: "선물을 줄 때 이상형의 스타일은?",
+        option1: "비싸고 감동적인 선물을 주는 사람",
+        option2: "센스 있고 실용적인 선물을 주는 사람",
+        traits1: ["화려한 사람", "감동 표현이 적극적인 사람"],
+        traits2: ["실용적인 사람", "센스 있는 사람"]
+    },
+    {
+        question: "주말을 보내는 방식은?",
+        option1: "야외로 나가서 활동적으로 보내는 사람",
+        option2: "집에서 편안하게 쉬는 사람",
+        traits1: ["활동적인 사람", "야외 활동을 좋아하는 사람"],
+        traits2: ["편안함을 중시하는 사람", "인도어를 좋아하는 사람"]
+    },
+    {
+        question: "이상형의 목표나 꿈은?",
+        option1: "큰 꿈을 꾸고 도전하는 사람",
+        option2: "현실적이고 안정적인 목표를 가진 사람",
+        traits1: ["도전적인 사람", "야망이 있는 사람"],
+        traits2: ["현실적인 사람", "안정을 추구하는 사람"]
     }
 ];
 
@@ -248,6 +332,42 @@ function analyzeType() {
     if (userAnswers[13] === 1) scores.realistic += 2; // 성격 좋은
     if (userAnswers[13] === 2) scores.trendy += 2; // 잘생긴
 
+    if (userAnswers[14] === 1) scores.trendy += 2; // 운동 꾸준히
+    if (userAnswers[14] === 2) scores.calm += 2; // 자연스러운 건강
+
+    if (userAnswers[15] === 1) scores.trendy += 1; // 즐겁게 쓰는
+    if (userAnswers[15] === 2) scores.realistic += 2; // 알뜰한
+
+    if (userAnswers[16] === 1) scores.realistic += 2; // 계획적인
+    if (userAnswers[16] === 2) scores.trendy += 1; // 유연한
+
+    if (userAnswers[17] === 1) scores.romantic += 1; // 반려동물
+    if (userAnswers[17] === 2) scores.calm += 1; // 자유로운
+
+    if (userAnswers[18] === 1) scores.trendy += 2; // 자기관리 철저
+    if (userAnswers[18] === 2) scores.calm += 2; // 자연스러운
+
+    if (userAnswers[19] === 1) scores.trendy += 2; // 사교적
+    if (userAnswers[19] === 2) scores.calm += 2; // 소수의 절친
+
+    if (userAnswers[20] === 1) scores.trendy += 1; // 트렌드 콘텐츠
+    if (userAnswers[20] === 2) scores.calm += 1; // 클래식
+
+    if (userAnswers[21] === 1) scores.realistic += 2; // 아침형
+    if (userAnswers[21] === 2) scores.trendy += 1; // 밤형
+
+    if (userAnswers[22] === 1) scores.trendy += 1; // 최신 음악
+    if (userAnswers[22] === 2) scores.calm += 1; // 명곡
+
+    if (userAnswers[23] === 1) scores.romantic += 2; // 비싼 선물
+    if (userAnswers[23] === 2) scores.realistic += 2; // 실용적 선물
+
+    if (userAnswers[24] === 1) scores.trendy += 2; // 야외 활동
+    if (userAnswers[24] === 2) scores.calm += 2; // 집에서 쉬기
+
+    if (userAnswers[25] === 1) scores.romantic += 2; // 큰 꿈
+    if (userAnswers[25] === 2) scores.realistic += 2; // 현실적 목표
+
     // 가장 높은 점수 타입 찾기
     const maxScore = Math.max(...Object.values(scores));
     const dominantType = Object.keys(scores).find(key => scores[key] === maxScore);
@@ -309,7 +429,27 @@ function showResult() {
         집안일: new Set(),
         도움: new Set(),
         성격좋음: new Set(),
-        잘생김: new Set()
+        잘생김: new Set(),
+        운동: new Set(),
+        알뜰: new Set(),
+        계획적: new Set(),
+        유연: new Set(),
+        반려동물: new Set(),
+        자기관리: new Set(),
+        사교적: new Set(),
+        깊은관계: new Set(),
+        트렌드콘텐츠: new Set(),
+        클래식: new Set(),
+        아침형: new Set(),
+        밤형: new Set(),
+        음악트렌드: new Set(),
+        음악클래식: new Set(),
+        비싼선물: new Set(),
+        실용선물: new Set(),
+        야외활동: new Set(),
+        인도어: new Set(),
+        큰꿈: new Set(),
+        현실목표: new Set()
     };
 
     const uniqueTraits = [...new Set(userTraits)];
@@ -386,6 +526,78 @@ function showResult() {
         }
         if (trait.includes('잘생') && !trait.includes('매력')) {
             categories.잘생김.add('잘생긴 사람');
+        }
+        if (trait.includes('운동') || trait.includes('자기관리')) {
+            categories.운동.add('운동을 꾸준히 하는 사람');
+        }
+        if (trait.includes('자연스러운') && trait.includes('건강')) {
+            categories.운동.add('자연스러운 건강을 가진 사람');
+        }
+        if (trait.includes('즐겁게') && trait.includes('쓰')) {
+            categories.알뜰.add('즐겁게 사는 사람');
+        }
+        if (trait.includes('저축') || trait.includes('알뜰')) {
+            categories.알뜰.add('알뜰한 사람');
+        }
+        if (trait.includes('계획') || trait.includes('준비')) {
+            categories.계획적.add('계획적인 사람');
+        }
+        if (trait.includes('유연') || trait.includes('즉흥')) {
+            categories.유연.add('유연한 사람');
+        }
+        if (trait.includes('동물') || trait.includes('반려')) {
+            categories.반려동물.add('동물을 사랑하는 사람');
+        }
+        if (trait.includes('자유') && trait.includes('생활')) {
+            categories.반려동물.add('자유로운 생활을 선호하는 사람');
+        }
+        if (trait.includes('스킨케어') || trait.includes('헤어')) {
+            categories.자기관리.add('외모 관리에 철저한 사람');
+        }
+        if (trait.includes('기본') && trait.includes('충분')) {
+            categories.자기관리.add('자연스러운 모습을 선호하는 사람');
+        }
+        if (trait.includes('친구') && trait.includes('많')) {
+            categories.사교적.add('사교적인 사람');
+        }
+        if (trait.includes('소수') || trait.includes('절친')) {
+            categories.깊은관계.add('진정성 있는 사람');
+        }
+        if (trait.includes('트렌드') && trait.includes('콘텐츠')) {
+            categories.트렌드콘텐츠.add('트렌드에 민감한 사람');
+        }
+        if (trait.includes('클래식') || trait.includes('명작')) {
+            categories.클래식.add('깊이 있는 사람');
+        }
+        if (trait.includes('아침') || trait.includes('규칙')) {
+            categories.아침형.add('규칙적인 생활을 하는 사람');
+        }
+        if (trait.includes('밤') || trait.includes('자유로운')) {
+            categories.밤형.add('자유로운 생활을 하는 사람');
+        }
+        if (trait.includes('음악') && trait.includes('최신')) {
+            categories.음악트렌드.add('새로운 음악을 좋아하는 사람');
+        }
+        if (trait.includes('음악') && trait.includes('명곡')) {
+            categories.음악클래식.add('깊이 있는 음악 취향');
+        }
+        if (trait.includes('선물') && trait.includes('비싸')) {
+            categories.비싼선물.add('감동 표현이 적극적인 사람');
+        }
+        if (trait.includes('선물') && trait.includes('실용')) {
+            categories.실용선물.add('센스 있는 사람');
+        }
+        if (trait.includes('야외') || trait.includes('활동')) {
+            categories.야외활동.add('활동적인 사람');
+        }
+        if (trait.includes('집') && trait.includes('쉬')) {
+            categories.인도어.add('편안함을 중시하는 사람');
+        }
+        if (trait.includes('꿈') || trait.includes('도전')) {
+            categories.큰꿈.add('야망이 있는 사람');
+        }
+        if (trait.includes('현실') && trait.includes('목표')) {
+            categories.현실목표.add('안정을 추구하는 사람');
         }
     });
 
